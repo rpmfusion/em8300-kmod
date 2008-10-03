@@ -19,8 +19,9 @@ Source0:        http://downloads.sourceforge.net/dxr3/em8300-nofirmware-%{versio
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
-ExclusiveArch:  i586 i686 x86_64 ppc ppc64
-# disabled by knurd on 20081003 as they are known to fail: 
+ExclusiveArch:  i586 i686 x86_64 ppc64
+# ppc disabled by knurd on 20081003 as it is known to fail on 2.6.26: 
+# https://bugzilla.redhat.com/show_bug.cgi?id=464613
 
 # get the needed BuildRequires (in parts depending on what we build for)
 BuildRequires:  %{_bindir}/kmodtool
