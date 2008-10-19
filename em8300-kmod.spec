@@ -10,7 +10,7 @@
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.17.2
-Release:        0%{?prever:.1.%{prever}}%{?dist}
+Release:        0%{?prever:.1.%{prever}}%{?dist}.1
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -21,9 +21,7 @@ Source0:        em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.lzma
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
-ExclusiveArch:  i586 i686 x86_64
-# ppc and ppc64 disabled by knurd on 20081003 as it is known to fail on 2.6.26: 
-# https://bugzilla.redhat.com/show_bug.cgi?id=465486
+ExclusiveArch:  i586 i686 x86_64 ppc ppc64
 
 # get the needed BuildRequires (in parts depending on what we build for)
 BuildRequires:  %{_bindir}/kmodtool
@@ -68,6 +66,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Oct 19 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.17.2-0.1.rc1.1
+- rebuild for latest rawhide kernel
+- enable ppc and ppc64 again
+
 * Wed Oct 15 2008 Felix Kaechele <felix at fetzig dot org> - 0.17.2-0.1.rc1
 - update to new upstream prerelease due to kernel incompatibilities
 
