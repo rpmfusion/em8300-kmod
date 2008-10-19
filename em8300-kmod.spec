@@ -3,7 +3,7 @@
 # "buildforkernels newest" macro for just that build; immediately after
 # queuing that build enable the macro again for subsequent builds; that way
 # a new akmod package will only get build when a new one is actually needed
-#define buildforkernels newest
+%define buildforkernels newest
 
 %define prever  rc1
 
@@ -21,8 +21,8 @@ Source0:        em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.lzma
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
-ExclusiveArch:  i586 i686 x86_64 ppc64
-# ppc disabled by knurd on 20081019 as it is known to fail: 
+ExclusiveArch:  i586 i686 x86_64
+# ppc and ppc64 disabled by knurd on 20081019 as they are known to fail: 
 # https://bugzilla.redhat.com/show_bug.cgi?id=465486
 
 # get the needed BuildRequires (in parts depending on what we build for)
@@ -70,7 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sun Oct 19 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.17.2-0.1.rc1.1
 - rebuild for latest rawhide kernel
-- enable ppc64 again
 
 * Wed Oct 15 2008 Felix Kaechele <felix at fetzig dot org> - 0.17.2-0.1.rc1
 - update to new upstream prerelease due to kernel incompatibilities
