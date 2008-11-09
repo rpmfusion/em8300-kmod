@@ -10,7 +10,7 @@
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.17.2
-Release:        0%{?prever:.1.%{prever}}%{?dist}.3
+Release:        0%{?prever:.1.%{prever}}%{?dist}.4
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Nov 09 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.17.2-0.1.rc1.4
+- rebuild for latest Fedora kernel;
+
 * Sun Nov 02 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.17.2-0.1.rc1.3
 - rebuild for latest rawhide kernel;
 
