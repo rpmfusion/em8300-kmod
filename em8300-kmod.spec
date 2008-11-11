@@ -5,19 +5,19 @@
 # a new akmod package will only get build when a new one is actually needed
 %define buildforkernels newest
 
-%define prever  rc1
+#define prever  rc1
 
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.17.2
-Release:        0%{?prever:.1.%{prever}}%{?dist}.4
+Release:        1%{?prever:.1.%{prever}}%{?dist}
 
 Group:          System Environment/Kernel
 License:        GPLv2+
 URL:            http://dxr3.sourceforge.net/
 #Source0: http://dxr3.sourceforge.net/download/em8300-%{version}%{?prever:-%{prever}}.tar.gz with modules/em8300.uc removed
-Source0:        em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.lzma
-#Source0:        http://downloads.sourceforge.net/dxr3/em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.gz
+#Source0:        em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.lzma
+Source0:        http://downloads.sourceforge.net/dxr3/em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Nov 11 2008 Felix Kaechele <felix at fetzig dot org> - 0.17.2-1
+- 0.17.2
+
 * Sun Nov 09 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.17.2-0.1.rc1.4
 - rebuild for latest Fedora kernel;
 
