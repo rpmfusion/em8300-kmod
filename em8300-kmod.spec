@@ -5,12 +5,14 @@
 # a new akmod package will only get build when a new one is actually needed
 #define buildforkernels newest
 
+%define kernels 2.6.26.6-79.fc9 2.6.25.3-2.fc9xen
+
 #define prever  rc1
 
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.17.2
-Release:        1%{?prever:.%{prever}}%{dist}
+Release:        0.1%{?prever:.%{prever}}%{dist}
 
 Group:          System Environment/Kernel
 License:        GPLv2+
