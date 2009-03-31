@@ -1,0 +1,22 @@
+diff -ruN em8300-0.17.2.orig/modules/adv717x.c em8300-0.17.2/modules/adv717x.c
+--- em8300-0.17.2.orig/modules/adv717x.c	2009-03-31 15:50:32.785167868 +0200
++++ em8300-0.17.2/modules/adv717x.c	2009-03-31 15:50:43.280150510 +0200
+@@ -44,7 +44,6 @@
+ 
+ #include <linux/i2c.h>
+ #include <linux/i2c-algo-bit.h>
+-#include <linux/video_encoder.h>
+ 
+ #include "em8300_compat24.h"
+ #include "em8300_reg.h"
+diff -ruN em8300-0.17.2.orig/modules/bt865.c em8300-0.17.2/modules/bt865.c
+--- em8300-0.17.2.orig/modules/bt865.c	2009-03-31 15:50:32.787159329 +0200
++++ em8300-0.17.2/modules/bt865.c	2009-03-31 15:53:40.045400454 +0200
+@@ -48,7 +48,6 @@
+ 
+ #include <linux/i2c.h>
+ #include <linux/i2c-algo-bit.h>
+-#include <linux/video_encoder.h>
+ 
+ #include "em8300_compat24.h"
+ #include "bt865.h"
