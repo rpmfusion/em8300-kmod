@@ -9,8 +9,8 @@
 
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
-Version:        0.17.2
-Release:        3%{?prever:.1.%{prever}}%{?dist}.23
+Version:        0.17.3
+Release:        1%{?prever:.1.%{prever}}%{?dist}
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -18,7 +18,6 @@ URL:            http://dxr3.sourceforge.net/
 #Source0: http://dxr3.sourceforge.net/download/em8300-%{version}%{?prever:-%{prever}}.tar.gz with modules/em8300.uc removed
 #Source0:        em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.lzma
 Source0:        http://downloads.sourceforge.net/dxr3/em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.gz
-Patch0:         em8300-kernel-2.6.29-fix.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
@@ -39,7 +38,6 @@ BuildRequires:  %{_bindir}/kmodtool
 kmodtool  --target %{_target_cpu} --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
 %setup -q -c
-%patch0
 for kernel_version  in %{?kernel_versions} ; do
     cp -a em8300-%{version}%{?prever:-%{prever}} \
         _kmod_build_${kernel_version%%___*}
@@ -68,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Jul 04 2009 Felix Kaechele <heffer@fedoraproject.org> - 0.17.3-1
+- update to 0.17.3
+
 * Fri Jun 05 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.17.2-3.23
 - rebuild for new kernels
 
