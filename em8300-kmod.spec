@@ -10,7 +10,7 @@
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.18.0
-Release:        1%{?dist}.11
+Release:        1%{?dist}.12
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -63,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Aug 11 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.18.0-1.12
+- rebuild for new kernel
+
 * Sun Aug 08 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.18.0-1.11
 - rebuild for new kernel
 
