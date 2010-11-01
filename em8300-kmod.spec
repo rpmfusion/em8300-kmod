@@ -3,14 +3,14 @@
 # "buildforkernels newest" macro for just that build; immediately after
 # queuing that build enable the macro again for subsequent builds; that way
 # a new akmod package will only get build when a new one is actually needed
-#define buildforkernels newest
+%define buildforkernels newest
 
 #define prever  rc1
 
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.18.0
-Release:        1%{?dist}.1
+Release:        1%{?dist}.2
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -63,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Nov 01 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.18.0-1.2
+- rebuild for F-14 kernel
+
 * Fri Oct 29 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.18.0-1.1
 - rebuild for F-14 kernel
 
