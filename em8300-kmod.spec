@@ -10,7 +10,7 @@
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.18.0
-Release:        1%{?dist}.7
+Release:        2%{?dist}
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -18,6 +18,8 @@ URL:            http://dxr3.sourceforge.net/
 #Source0: http://dxr3.sourceforge.net/download/em8300-%{version}%{?prever:-%{prever}}.tar.gz with modules/em8300.uc removed
 #Source0:        em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.lzma
 Source0:        http://downloads.sourceforge.net/dxr3/em8300-nofirmware-%{version}%{?prever:-%{prever}}.tar.gz
+# http://trac-hg.assembla.com/em8300-cgmeiner/changeset/720
+Patch0:         %{name}-0.18.0-kernel2635.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # get the needed BuildRequires (in parts depending on what we build for)
@@ -35,7 +37,10 @@ BuildRequires:  %{_bindir}/kmodtool
 kmodtool  --target %{_target_cpu} --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
 %setup -q -c
-for kernel_version  in %{?kernel_versions} ; do
+cd em8300-%{version}%{?prever:-%{prever}}
+%patch0 -p1
+cd ..
+for kernel_version in %{?kernel_versions} ; do
     cp -a em8300-%{version}%{?prever:-%{prever}} \
         _kmod_build_${kernel_version%%___*}
 done
@@ -63,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Jan 23 2011 Ville Skyttä <ville.skytta@iki.fi> - 0.18.0-2
+- Apply Christian Gmeiner's patch to fix build with kernels >= 2.6.35.
+
 * Fri Dec 24 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.18.0-1.7
 - rebuild for updated kernel
 
