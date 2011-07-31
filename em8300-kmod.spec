@@ -63,10 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sun Jul 31 2011 Nicolas Chauvet <kwizart@gmail.com> - 0.18.0-1.4
--
-rebuild for updated kernel
-
 * Tue Jul 12 2011 Nicolas Chauvet <kwizart@gmail.com> - 0.18.0-1.3
 - Rebuild for updated kernel
 
