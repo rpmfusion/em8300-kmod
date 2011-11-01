@@ -10,7 +10,7 @@
 Name:           em8300-kmod
 Summary:        Kernel modules for DXR3/Hollywood Plus MPEG decoder cards
 Version:        0.18.0
-Release:        2%{?dist}.2
+Release:        2%{?dist}.3
 
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -63,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Nov 01 2011 Nicolas Chauvet <kwizart@gmail.com> - 0.18.0-2.3
+- Rebuild for F-16 kernel
+
 * Fri Oct 28 2011 Nicolas Chauvet <kwizart@gmail.com> - 0.18.0-2.2
 - Rebuild for F-16 kernel
 
